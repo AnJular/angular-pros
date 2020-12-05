@@ -1,0 +1,52 @@
+<html ng-app="todoApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="testController.js"></script>
+    <!-- <script src="app.js"></script> -->
+
+    <link rel="stylesheet" href="todo.css">
+  </head>
+  <body>
+    <h2>Todo</h2>
+    
+    <div ng-controller="TestController as ctrl">
+      <form name='form' ng-submit="ctrl.clk()">
+        <input type="checkbox" ng-model="ctrl.car">
+          <label for="vehicle1"> I have a car</label><br>
+        <input type="checkbox" ng-model="ctrl.mac">
+          <label for="vehicle1"> I have a mac</label><br>
+        <input type="checkbox" ng-model="ctrl.bike">
+          <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" ng-model="ctrl.other">
+          <label for="vehicle1"> Other</label><br>
+
+        <input type="text" name="name" ng-model="inp" ng-show="ctrl.other">
+          <h1>{{!ctrl.other ? 'yes' : 'no'}}</h1>
+          <button ng-click="ctrl.fun()" ng-disabled="ctrl.car ? false : ctrl.mac ? false: ctrl.bike? false : ctrl.other && inp.length > 2 ? false : true">Press</button>
+      </form>
+      
+    </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+    <!-- <div ng-controller="TodoListController as todoList">        
+      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+    </div> -->
+  </body>
+</html>
